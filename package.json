@@ -1,0 +1,12 @@
+{
+  "name": "itszhop",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ItsZhop — handmade crochet toys & bags, shopping bags, women's handbags and homemade pickles. Zero-dependency e-commerce frontend.",
+  "scripts": {
+    "test": "node tests/cart.test.mjs && node tests/validate.test.mjs && node tests/render.test.mjs",
+    "test:e2e": "node tests/e2e.mjs",
+    "serve": "python3 -m http.server 8080 --bind 0.0.0.0"
+  }
+}

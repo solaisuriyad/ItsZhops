@@ -1,0 +1,88 @@
+/* ============================================================
+   ItsZhop design tokens
+   ============================================================ */
+:root {
+  --font-body: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  --container: 1200px;
+  --header-h: 68px;
+
+  --star: #d99a2b;
+  --success: #3e7b4f;
+  --danger: #b3402e;
+  --warning: #a26508;
+
+  color-scheme: light;
+}
+
+:root[data-theme="light"] {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --surface-2: #f3ede3;
+  --text: #241e16;
+  --text-muted: #6d6255;
+  --border: #e7dccc;
+  --border-strong: #d5c7b2;
+
+  --primary: #b0522a;
+  --primary-hover: #97431f;
+  --primary-active: #7f3717;
+  --primary-soft: #f6e7dd;
+  --on-primary: #fff8f2;
+
+  --secondary: #43593f;
+  --secondary-soft: #e7ede2;
+
+  --shadow-1: 0 1px 2px rgb(36 30 22 / 0.06), 0 2px 8px rgb(36 30 22 / 0.05);
+  --shadow-2: 0 2px 6px rgb(36 30 22 / 0.07), 0 16px 32px -16px rgb(36 30 22 / 0.22);
+  --ring: 0 0 0 3px rgb(176 82 42 / 0.28);
+  --overlay: rgb(28 22 15 / 0.45);
+  --skeleton: #eee5d8;
+}
+
+:root[data-theme="dark"] {
+  --bg: #171310;
+  --surface: #201b16;
+  --surface-2: #2a241d;
+  --text: #f2ebe1;
+  --text-muted: #ab9f8f;
+  --border: #383026;
+  --border-strong: #4c4234;
+
+  --primary: #e0824f;
+  --primary-hover: #ea9569;
+  --primary-active: #f2a67e;
+  --primary-soft: #3b2a1f;
+  --on-primary: #241509;
+
+  --secondary: #a4bd97;
+  --secondary-soft: #2a3325;
+
+  --star: #e0a83f;
+  --success: #86c296;
+  --danger: #e2836f;
+  --warning: #d9a04a;
+
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.5), 0 2px 8px rgb(0 0 0 / 0.35);
+  --shadow-2: 0 2px 6px rgb(0 0 0 / 0.5), 0 18px 36px -16px rgb(0 0 0 / 0.6);
+  --ring: 0 0 0 3px rgb(224 130 79 / 0.35);
+  --overlay: rgb(0 0 0 / 0.6);
+  --skeleton: #2c251d;
+
+  color-scheme: dark;
+}
