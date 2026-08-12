@@ -57,6 +57,16 @@ tools/                image pipeline used to source product photos
 tests/                unit (cart math, validators), render smoke, jsdom e2e
 ```
 
+### Brand logo
+
+The logo lives at **`assets/img/brand/logo.png`** and is rendered by
+`js/components/brand.js` in the header, mobile menu, footer and as the favicon.
+
+It is displayed **exactly as supplied** — `object-fit: contain`, no crop, no CSS
+filter/mask/blend, only proportional scaling. Replace that one file to update the
+logo everywhere. If the file is absent, the mark falls back to the built-in SVG
+yarn icon so the header never renders broken.
+
 ### Adding products / categories
 
 Append to `PRODUCTS` / `CATEGORIES` in `js/data/catalog.js`. Search, filters,
