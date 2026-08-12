@@ -33,3 +33,14 @@ export function brandLockup({ size = 40, tagline = false } = {}) {
       ${tagline ? '<span class="brand-tagline">Shop More. Smile More.</span>' : ''}
     </span>`;
 }
+
+/** Main header logo spanning both header rows without cropping. */
+export function headerBrandLogo() {
+  return `<a class="header-logo-link" href="#/" aria-label="ItsZhop &amp; A-Akh home">
+    <span class="header-logo-box">
+      <img class="header-logo-img" src="${LOGO_MASTER}"
+           alt="ItsZhop and A-Akh logo" width="1624" height="968" decoding="async" onerror="this.remove()">
+      <span class="brand-mark-fallback">${icon('yarn', 40)}</span>
+    </span>
+  </a>`;
+}

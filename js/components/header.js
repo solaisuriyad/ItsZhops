@@ -5,7 +5,7 @@ import { count as wishCount } from '../state/wishlist.js';
 import { current as theme } from '../state/theme.js';
 import { esc, $ } from '../lib/dom.js';
 import { icon } from './icons.js';
-import { brandLockup } from './brand.js';
+import { brandLockup, headerBrandLogo } from './brand.js';
 
 export function renderHeader() {
   const catLinks = CATEGORIES.map(
@@ -16,47 +16,64 @@ export function renderHeader() {
   return `
   <p class="announce">Free shipping on orders above ₹999 &nbsp;•&nbsp; Handmade in small batches across India</p>
   <header class="site-header">
-    <div class="container header-row">
-      <button type="button" class="icon-btn menu-btn" data-action="toggle-menu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">${icon('menu', 22)}</button>
+    <div class="container header-layout">
+      ${headerBrandLogo()}
 
-      <a class="brand" href="#/" aria-label="ItsZhop — Shop More. Smile More., home">
-        ${brandLockup({ size: 40, tagline: true })}
-      </a>
+      <div class="header-rows">
+        <div class="header-row-top">
+          <div class="header-top-left">
+            <a class="hdr-shop-name" href="#/" aria-label="ItsZhop — Shop More. Smile More., home">
+              <span class="brand-word"><span class="its">Its</span><span class="zhop"><b>Z</b>hop</span></span>
+              <span class="hdr-tagline-top">Shop More. Smile More.</span>
+            </a>
+          </div>
+          <div class="header-top-right">
+            <div class="hdr-partner-badge" aria-label="A-Akh">
+              <span class="hdr-partner-name">A-Akh</span>
+              <span class="hdr-partner-tagline">Handmade Pickles &amp; Treasures</span>
+            </div>
+          </div>
+        </div>
 
-      <nav aria-label="Primary">
-        <ul class="header-nav">
-          <li><a class="nav-link" data-nav="home" href="#/">Home</a></li>
-          <li><a class="nav-link" data-nav="shop" href="#/shop">Shop</a></li>
-          <li>
-            <button type="button" class="nav-link" data-action="toggle-cats" aria-expanded="false" aria-controls="cats-dropdown">
-              Categories ${icon('chevron-down', 16)}
+        <div class="header-row-bottom">
+          <button type="button" class="icon-btn menu-btn" data-action="toggle-menu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">${icon('menu', 22)}</button>
+
+          <nav aria-label="Primary">
+            <ul class="header-nav">
+              <li><a class="nav-link" data-nav="home" href="#/">Home</a></li>
+              <li><a class="nav-link" data-nav="shop" href="#/shop">Shop</a></li>
+              <li>
+                <button type="button" class="nav-link" data-action="toggle-cats" aria-expanded="false" aria-controls="cats-dropdown">
+                  Categories ${icon('chevron-down', 16)}
+                </button>
+                <ul class="dropdown-panel" id="cats-dropdown" hidden>${catLinks}</ul>
+              </li>
+              <li><a class="nav-link" data-nav="about" href="#/about">About</a></li>
+              <li><a class="nav-link" data-nav="contact" href="#/contact">Contact</a></li>
+            </ul>
+          </nav>
+
+          <form class="header-search" data-form="search" role="search">
+            <label class="sr-only" for="hdr-search">Search products</label>
+            ${icon('search', 18)}
+            <input class="input" id="hdr-search" name="q" type="search" placeholder="Search toys, bags, pickles…" list="product-names" autocomplete="off">
+            <datalist id="product-names">${names}</datalist>
+          </form>
+
+          <div class="header-actions">
+            <button type="button" class="icon-btn" data-action="toggle-search" aria-label="Toggle search">${icon('search', 20)}</button>
+            <button type="button" class="icon-btn" data-action="toggle-theme" aria-label="Switch to dark mode">${theme() === 'dark' ? icon('sun', 20) : icon('moon', 20)}</button>
+            <a class="icon-btn" href="#/orders" aria-label="Your account and orders">${icon('user', 20)}</a>
+            <a class="icon-btn" href="#/wishlist" aria-label="Wishlist">
+              ${icon('heart', 20)}
+              <span class="count-bubble" data-wish-count hidden>0</span>
+            </a>
+            <button type="button" class="icon-btn" data-action="open-cart" aria-label="Open cart">
+              ${icon('cart', 20)}
+              <span class="count-bubble zero" data-cart-count>0</span>
             </button>
-            <ul class="dropdown-panel" id="cats-dropdown" hidden>${catLinks}</ul>
-          </li>
-          <li><a class="nav-link" data-nav="about" href="#/about">About</a></li>
-          <li><a class="nav-link" data-nav="contact" href="#/contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <form class="header-search" data-form="search" role="search">
-        <label class="sr-only" for="hdr-search">Search products</label>
-        ${icon('search', 18)}
-        <input class="input" id="hdr-search" name="q" type="search" placeholder="Search toys, bags, pickles…" list="product-names" autocomplete="off">
-        <datalist id="product-names">${names}</datalist>
-      </form>
-
-      <div class="header-actions">
-        <button type="button" class="icon-btn" data-action="toggle-search" aria-label="Toggle search">${icon('search', 20)}</button>
-        <button type="button" class="icon-btn" data-action="toggle-theme" aria-label="Switch to dark mode">${theme() === 'dark' ? icon('sun', 20) : icon('moon', 20)}</button>
-        <a class="icon-btn" href="#/orders" aria-label="Your account and orders">${icon('user', 20)}</a>
-        <a class="icon-btn" href="#/wishlist" aria-label="Wishlist">
-          ${icon('heart', 20)}
-          <span class="count-bubble" data-wish-count hidden>0</span>
-        </a>
-        <button type="button" class="icon-btn" data-action="open-cart" aria-label="Open cart">
-          ${icon('cart', 20)}
-          <span class="count-bubble zero" data-cart-count>0</span>
-        </button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="mobile-search" id="mobile-search" hidden>
