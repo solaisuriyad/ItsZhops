@@ -19,7 +19,7 @@ export function renderHeader() {
     <div class="container header-row">
       <button type="button" class="icon-btn menu-btn" data-action="toggle-menu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">${icon('menu', 22)}</button>
 
-      <a class="brand" href="#/" aria-label="ItsZhop — Style Starts Here, home">
+      <a class="brand" href="#/" aria-label="ItsZhop — Shop More. Smile More., home">
         ${brandLockup({ size: 40, tagline: true })}
       </a>
 

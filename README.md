@@ -59,26 +59,21 @@ tests/                unit (cart math, validators), render smoke, jsdom e2e
 
 ### Brand logo
 
-Source of truth: **`assets/img/brand/logo.png`** (1254x1254, supplied artwork).
-Everything else is derived from it by crop + scale only - no recolouring, no
-redrawing:
+The single source of truth is **`assets/img/brand/logo.png`**. The header,
+mobile menu, footer, favicon and social preview all reference this file
+directly, so there are no generated logo copies that can remain stuck on an
+older design.
 
-| File | Size | Used for |
-|---|---|---|
-| `mark-96/192.png` | square | header, mobile menu, footer, favicon, iOS icon |
-| `lockup-512.jpg` | 1:1.07 | social share preview (`og:image`) |
-| `logo.png` | 1254x1254 | untouched master |
+To update the branding, replace `logo.png` while keeping the same path and
+commit the change. GitHub Pages will show it after the deployment completes
+(and, in a browser that already had the site open, after a refresh). The
+compact navigation mark focuses the pictorial part of the artwork; the store
+name and tagline beside it are live HTML text so they remain readable at small
+sizes.
 
-`mark-*.png` crops to the bag + IZ monogram and squares it up so the artwork
-fills ~92% of the frame. The full logo's own wordmark is illegible below
-~120px, so the site pairs the mark with live HTML text for the name instead -
-crisp and selectable at any size.
-
-Rendered by `js/components/brand.js`, which serves the right file via
-`srcset`. If an image 404s the `<img>` removes itself and a built-in SVG
-yarn mark shows, so the header never renders broken.
-
-To regenerate after replacing `logo.png`, see `tools/make_logo_assets.py`.
+Rendering lives in `js/components/brand.js`. If the image cannot load, the
+`<img>` removes itself and a built-in SVG yarn mark appears instead, so the
+header never shows a broken-image icon.
 
 ### Adding products / categories
 
