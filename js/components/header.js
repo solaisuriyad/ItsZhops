@@ -28,9 +28,9 @@ export function renderHeader() {
             </a>
           </div>
           <div class="header-top-right">
-            <div class="hdr-partner-badge" aria-label="A-Akh">
+            <div class="hdr-partner-badge" aria-label="A-Akh — Your Style, Our Passion">
               <span class="hdr-partner-name">A-Akh</span>
-              <span class="hdr-partner-tagline">Handmade Pickles &amp; Treasures</span>
+              <span class="hdr-partner-tagline">Your Style, Our Passion</span>
             </div>
           </div>
         </div>

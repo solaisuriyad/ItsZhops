@@ -112,7 +112,7 @@
 .hdr-partner-badge {
   display: inline-flex;
   align-items: baseline;
-  gap: 10px;
+  gap: 12px;
 }
 .hdr-partner-name {
   font-family: var(--font-display);
@@ -127,12 +127,16 @@
   border-bottom: 2px solid var(--primary-soft);
 }
 .hdr-partner-tagline {
-  font-size: .68rem;
-  font-weight: 700;
+  font-family: var(--font-script);
+  font-size: 1.72rem;
+  font-weight: 400;
+  font-style: normal;
   line-height: 1;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  text-transform: none;
+  color: var(--primary);
+  white-space: nowrap;
+  text-shadow: 0 1px 0 color-mix(in srgb, var(--primary-soft) 70%, transparent);
 }
 
 .header-row-bottom {
@@ -234,7 +238,8 @@
   .header-search { max-width: 210px; margin-left: 8px; }
   .nav-link { padding: 9px 9px; font-size: .88rem; }
   .hdr-shop-name .brand-word, .hdr-partner-name { font-size: 1.45rem; }
-  .hdr-tagline-top, .hdr-partner-tagline { display: none; }
+  .hdr-partner-tagline { font-size: 1.35rem; }
+  .hdr-tagline-top { display: none; }
 }
 @media (max-width: 900px) {
   :root {
@@ -242,7 +247,8 @@
   }
   .header-layout { gap: 10px; }
   .hdr-shop-name .brand-word, .hdr-partner-name { font-size: 1.35rem; }
-  .hdr-tagline-top, .hdr-partner-tagline { display: none; }
+  .hdr-partner-tagline { font-size: 1.2rem; }
+  .hdr-tagline-top { display: none; }
   .header-row-top { min-height: 44px; padding: 6px 4px; }
   .header-row-bottom { min-height: 44px; padding: 4px; }
   .menu-btn { display: inline-flex; }
@@ -253,6 +259,7 @@
     --header-h: 94px;
   }
   .hdr-shop-name .brand-word, .hdr-partner-name { font-size: 1.2rem; }
+  .hdr-partner-tagline { display: none; }
   .header-logo-box { height: 76px; }
 }
 .mobile-nav {

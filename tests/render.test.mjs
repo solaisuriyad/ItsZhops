@@ -35,6 +35,7 @@ const cases = [
   ['policy-missing', policies.render(P({ slug: 'nope' })), 'Page not found'],
   ['notfound', notfound.render(P()), '404'],
   ['header', header.renderHeader(), 'ItsZhop'],
+  ['header-tagline', header.renderHeader(), 'Your Style, Our Passion'],
   ['footer', footer.renderFooter(), 'Customer Support'],
   ['drawer', drawer.renderDrawer(), 'Shopping cart'],
 ];

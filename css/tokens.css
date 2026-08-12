@@ -4,6 +4,7 @@
 :root {
   --font-body: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-display: "Fraunces", Georgia, serif;
+  --font-script: "Great Vibes", "Fraunces", Georgia, cursive;
 
   --radius-sm: 8px;
   --radius-md: 12px;
