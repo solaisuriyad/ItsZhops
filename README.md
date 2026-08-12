@@ -57,6 +57,29 @@ tools/                image pipeline used to source product photos
 tests/                unit (cart math, validators), render smoke, jsdom e2e
 ```
 
+### Brand logo
+
+Source of truth: **`assets/img/brand/logo.png`** (1254x1254, supplied artwork).
+Everything else is derived from it by crop + scale only - no recolouring, no
+redrawing:
+
+| File | Size | Used for |
+|---|---|---|
+| `mark-96/192.png` | square | header, mobile menu, footer, favicon, iOS icon |
+| `lockup-512.jpg` | 1:1.07 | social share preview (`og:image`) |
+| `logo.png` | 1254x1254 | untouched master |
+
+`mark-*.png` crops to the bag + IZ monogram and squares it up so the artwork
+fills ~92% of the frame. The full logo's own wordmark is illegible below
+~120px, so the site pairs the mark with live HTML text for the name instead -
+crisp and selectable at any size.
+
+Rendered by `js/components/brand.js`, which serves the right file via
+`srcset`. If an image 404s the `<img>` removes itself and a built-in SVG
+yarn mark shows, so the header never renders broken.
+
+To regenerate after replacing `logo.png`, see `tools/make_logo_assets.py`.
+
 ### Adding products / categories
 
 Append to `PRODUCTS` / `CATEGORIES` in `js/data/catalog.js`. Search, filters,
