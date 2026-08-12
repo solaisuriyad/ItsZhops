@@ -17,8 +17,132 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
-.header-row { display: flex; align-items: center; gap: var(--space-4); height: var(--header-h); }
-.header-nav { display: flex; align-items: center; gap: 2px; margin-left: var(--space-3); }
+.header-layout {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-5);
+  min-height: var(--header-h);
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.header-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  padding: 4px 16px 4px 0;
+  text-decoration: none;
+  position: relative;
+}
+.header-logo-link:hover {
+  text-decoration: none;
+}
+.header-logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--header-h) - 16px);
+  width: auto;
+  position: relative;
+}
+.header-logo-box .header-logo-img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+  transition: transform .22s ease;
+  filter: drop-shadow(0 2px 6px rgb(0 0 0 / 0.12));
+}
+.header-logo-link:hover .header-logo-img {
+  transform: scale(1.04);
+}
+
+.header-rows {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  justify-content: space-between;
+}
+.header-row-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 4px 10px;
+  border-bottom: 1px solid var(--border);
+  min-height: 52px;
+}
+.header-top-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.header-top-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hdr-shop-name {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--text);
+  text-decoration: none;
+}
+.hdr-shop-name:hover {
+  text-decoration: none;
+}
+.hdr-shop-name .brand-word {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  line-height: 1;
+}
+.hdr-shop-name .hdr-tagline-top {
+  font-size: .68rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.hdr-partner-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.hdr-partner-name {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  position: relative;
+  padding-bottom: 2px;
+  border-bottom: 2px solid var(--primary-soft);
+}
+.hdr-partner-tagline {
+  font-size: .68rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.header-row-bottom {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: 6px 4px 4px;
+  min-height: 52px;
+}
+.header-nav { display: flex; align-items: center; gap: 4px; margin-left: 0; }
 .header-nav > li { position: relative; }
 .nav-link {
   display: inline-flex; align-items: center; gap: 6px;
@@ -34,22 +158,20 @@
 .brand:hover { text-decoration: none; }
 .brand-mark {
   --mark-size: 40px;
-  width: var(--mark-size); height: var(--mark-size);
+  width: auto;
+  min-width: var(--mark-size);
+  height: var(--mark-size);
   position: relative;
-  flex: none; display: grid; place-items: center;
-  border-radius: 10px; overflow: hidden;
-  /* A hairline ring keeps the artwork distinct on light surfaces. */
+  flex: none; display: flex; align-items: center; justify-content: center;
+  border-radius: 8px; overflow: hidden;
   box-shadow: inset 0 0 0 1px rgb(0 0 0 / .1), var(--shadow-1);
 }
 .brand:hover .brand-mark { box-shadow: inset 0 0 0 1px rgb(0 0 0 / .1), var(--shadow-2); }
-/* Load the uploaded master directly so a GitHub replacement is reflected on
-   the site. At navigation size, focus its upper pictorial section while the
-   adjacent live text provides the readable wordmark. No filter or mask is
-   applied to the artwork. */
 .brand-logo-img {
-  position: absolute; top: 0; left: 50%;
-  width: auto; max-width: none; height: 138%;
-  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
   display: block;
 }
 /* Fallback yarn mark, only visible if the logo image fails to load. */
@@ -107,11 +229,31 @@
   [data-action="toggle-search"] { display: none; }
 }
 @media (max-width: 1180px) and (min-width: 901px) {
-  .header-row { gap: 10px; }
+  .header-layout { gap: 12px; }
+  .header-row-bottom { gap: 10px; }
   .header-search { max-width: 210px; margin-left: 8px; }
   .nav-link { padding: 9px 9px; font-size: .88rem; }
-  .brand-word { font-size: 1.25rem; }
-  .brand-tagline { display: none; }
+  .hdr-shop-name .brand-word, .hdr-partner-name { font-size: 1.45rem; }
+  .hdr-tagline-top, .hdr-partner-tagline { display: none; }
+}
+@media (max-width: 900px) {
+  :root {
+    --header-h: 102px;
+  }
+  .header-layout { gap: 10px; }
+  .hdr-shop-name .brand-word, .hdr-partner-name { font-size: 1.35rem; }
+  .hdr-tagline-top, .hdr-partner-tagline { display: none; }
+  .header-row-top { min-height: 44px; padding: 6px 4px; }
+  .header-row-bottom { min-height: 44px; padding: 4px; }
+  .menu-btn { display: inline-flex; }
+  .header-actions { margin-left: auto; }
+}
+@media (max-width: 600px) {
+  :root {
+    --header-h: 94px;
+  }
+  .hdr-shop-name .brand-word, .hdr-partner-name { font-size: 1.2rem; }
+  .header-logo-box { height: 76px; }
 }
 .mobile-nav {
   display: none;
