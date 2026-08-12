@@ -35,18 +35,21 @@
 .brand-mark {
   --mark-size: 40px;
   width: var(--mark-size); height: var(--mark-size);
+  position: relative;
   flex: none; display: grid; place-items: center;
   border-radius: 10px; overflow: hidden;
-  /* The mark carries its own leather backdrop; a hairline ring stops it
-     reading as a floating patch on light surfaces. */
+  /* A hairline ring keeps the artwork distinct on light surfaces. */
   box-shadow: inset 0 0 0 1px rgb(0 0 0 / .1), var(--shadow-1);
 }
 .brand:hover .brand-mark { box-shadow: inset 0 0 0 1px rgb(0 0 0 / .1), var(--shadow-2); }
-/* The uploaded logo is shown exactly as supplied: full artwork, no crop,
-   no colour filter, no mask — only proportional scaling. */
+/* Load the uploaded master directly so a GitHub replacement is reflected on
+   the site. At navigation size, focus its upper pictorial section while the
+   adjacent live text provides the readable wordmark. No filter or mask is
+   applied to the artwork. */
 .brand-logo-img {
-  width: 100%; height: 100%;
-  object-fit: contain; object-position: center;
+  position: absolute; top: 0; left: 50%;
+  width: auto; max-width: none; height: 138%;
+  transform: translateX(-50%);
   display: block;
 }
 /* Fallback yarn mark, only visible if the logo image fails to load. */

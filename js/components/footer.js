@@ -10,7 +10,7 @@ export function renderFooter() {
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="brand" href="#/" aria-label="ItsZhop — Style Starts Here, home">
+          <a class="brand" href="#/" aria-label="ItsZhop — Shop More. Smile More., home">
             ${brandLockup({ size: 46, tagline: true })}
           </a>
           <p>A small Indian store for handmade crochet treasures, honest bags and pickles that taste like home. Everything is made slowly, in small batches, by people who care.</p>

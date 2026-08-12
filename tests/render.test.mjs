@@ -45,6 +45,14 @@ for (const [name, html, marker] of cases) {
   assert.ok(!html.includes('NaN'), `${name} contains literal "NaN"`);
 }
 
+/* Branding must use the replaceable master directly, never a stale derivative. */
+const headerHtml = header.renderHeader();
+const footerHtml = footer.renderFooter();
+for (const html of [headerHtml, footerHtml]) {
+  assert.ok(html.includes('assets/img/brand/logo.png'), 'brand is not using logo.png');
+  assert.ok(!html.includes('assets/img/brand/mark-'), 'brand still references a generated mark');
+}
+
 /* INR formatting sanity */
 const { formatINR } = await import('../js/lib/format.js');
 assert.equal(formatINR(1299), '₹1,299');
