@@ -2,6 +2,7 @@
 import { CATEGORIES } from '../data/catalog.js';
 import { STORE } from '../data/content.js';
 import { icon } from './icons.js';
+import { brandLockup } from './brand.js';
 
 export function renderFooter() {
   return `
@@ -9,9 +10,8 @@ export function renderFooter() {
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="brand" href="#/" aria-label="ItsZhop home">
-            <span class="brand-mark">${icon('yarn', 22)}</span>
-            <span class="brand-word"><span class="its">Its</span><span class="zhop"><b>Z</b>hop</span></span>
+          <a class="brand" href="#/" aria-label="ItsZhop — Style Starts Here, home">
+            ${brandLockup({ size: 46, tagline: true })}
           </a>
           <p>A small Indian store for handmade crochet treasures, honest bags and pickles that taste like home. Everything is made slowly, in small batches, by people who care.</p>
           <div class="social-row" aria-label="Social media">

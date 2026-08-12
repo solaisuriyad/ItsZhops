@@ -5,6 +5,7 @@ import { count as wishCount } from '../state/wishlist.js';
 import { current as theme } from '../state/theme.js';
 import { esc, $ } from '../lib/dom.js';
 import { icon } from './icons.js';
+import { brandLockup } from './brand.js';
 
 export function renderHeader() {
   const catLinks = CATEGORIES.map(
@@ -18,9 +19,8 @@ export function renderHeader() {
     <div class="container header-row">
       <button type="button" class="icon-btn menu-btn" data-action="toggle-menu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">${icon('menu', 22)}</button>
 
-      <a class="brand" href="#/" aria-label="ItsZhop home">
-        <span class="brand-mark">${icon('yarn', 22)}</span>
-        <span class="brand-word"><span class="its">Its</span><span class="zhop"><b>Z</b>hop</span></span>
+      <a class="brand" href="#/" aria-label="ItsZhop — Style Starts Here, home">
+        ${brandLockup({ size: 40, tagline: true })}
       </a>
 
       <nav aria-label="Primary">
@@ -71,7 +71,7 @@ export function renderHeader() {
     <div class="overlay" data-action="close-menu"></div>
     <div class="panel" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="panel-head">
-        <span class="brand-word"><span class="its">Its</span><span class="zhop"><b>Z</b>hop</span></span>
+        <a class="brand" href="#/" aria-label="ItsZhop home">${brandLockup({ size: 34 })}</a>
         <button type="button" class="icon-btn" data-action="close-menu" aria-label="Close menu">${icon('close', 20)}</button>
       </div>
       <a href="#/" data-nav="home">Home</a>
